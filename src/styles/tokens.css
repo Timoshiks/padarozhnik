@@ -1,0 +1,141 @@
+/*
+ * tokens.css — Дизайн-токены «Падарожнiк»
+ *
+ * Источник: DESIGN.md §3.3 (цвета), §4.2 (радиусы), §2.4 (типографика)
+ * Правило: все цвета и радиусы только через эти переменные, без хардкода HEX в JSX.
+ */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Google Fonts fallback (на случай отсутствия сети) ─── */
+@layer base {
+  html {
+    font-family: 'Onest', sans-serif;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+}
+
+/* ─── §3.3 + §4.2: CSS-переменные ─── */
+:root {
+  /* Поверхности (Surfaces — синхронизировано с референсом Белоруснефть) */
+  --map:              #c9f2dc;             /* Подложка карты */
+  --bg-canvas:        #c9f2dc;
+  --sheet:            #f4f8f2;             /* Основной фон шторки */
+  --bg-sheet:         #f4f8f2;
+  --card:             #ffffff;             /* Карточки, поиск, кнопки */
+  --bg-card:          #ffffff;
+  --bg-container:     #ffffff;
+  --bg-card-inner:    #f4f8f2;
+  --nav:              #ffffff;             /* Нижний бар */
+  --bg-glass:         rgba(255, 255, 255, 0.94);
+  --active:           #eef0fb;             /* Подложка активной вкладки */
+
+  /* Текст и иконки */
+  --text:             #1c1c1c;             /* Основной текст */
+  --text-primary:     #1c1c1c;
+  --muted:            #6f7a73;             /* Второстепенный текст */
+  --text-secondary:   #6f7a73;
+  --icon:             #6a6a6a;             /* Иконки */
+  --handle:           #dcdedc;             /* Ручка шторки */
+  --border-subtle:    #e4e8e3;
+  --text-on-accent:   #ffffff;
+
+  /* Тени */
+  --shadow:           0 2px 8px rgba(0,0,0,.18);
+  --shadow-nav:       0 -1px 6px rgba(0,0,0,.05);
+
+  /* Единственный изумрудный акцент */
+  --color-accent:     #009A49;
+  --color-accent-soft: #e6f5ed;
+  --color-danger:     #D92D20;
+
+  /* Шрифты */
+  --font-display:     'Unbounded', 'Onest', sans-serif;
+  --font-text:        'Onest', -apple-system, Roboto, sans-serif;
+
+  /* Радиусы */
+  --radius-sheet:     28px 28px 0 0;
+  --radius-container: 24px;
+  --radius-tile:      18px;
+  --radius-pill:      9999px;
+}
+
+/* ─── §2.3: Табличные цифры (обязателен на всех динамических числах) ─── */
+.numeric,
+[data-numeric='true'] {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: 'tnum' 1;
+}
+
+/* ─── Типографическая шкала §2.4 ─── */
+.title-lg {
+  font-family: var(--font-display);
+  font-size: 22px;
+  line-height: 28px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.title-md {
+  font-family: var(--font-display);
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.list-title {
+  font-family: var(--font-text);
+  font-size: 17px;
+  line-height: 22px;
+  font-weight: 600;
+}
+
+.body-md {
+  font-family: var(--font-text);
+  font-size: 15px;
+  line-height: 21px;
+  font-weight: 400;
+}
+
+.caption {
+  font-family: var(--font-text);
+  font-size: 13px;
+  line-height: 17px;
+  font-weight: 500;
+}
+
+.cluster-badge {
+  font-family: var(--font-display);
+  font-size: 14px;
+  line-height: 14px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: 'tnum' 1;
+}
+
+/* ─── Backdrop blur — только поверх карты ─── */
+.glass-blur {
+  background: var(--bg-glass);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* ─── Глобальный сброс (без лишних отступов браузера) ─── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-canvas);
+  color: var(--text-primary);
+  font-family: var(--font-text);
+  overflow: hidden; /* скролл только внутри шторок */
+}

@@ -1,0 +1,16 @@
+{
+  "totalSights": 6993,
+  "sightsWithImages": 3032,
+  "totalStations": 732,
+  "electricStations": 61,
+  "bounds": {
+    "minLat": 51.200848,
+    "maxLat": 56.171026,
+    "minLng": 23.235991,
+    "maxLng": 32.624709,
+    "center": [
+      53.685937,
+      27.93035
+    ]
+  }
+}
