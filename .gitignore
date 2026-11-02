@@ -1,3 +1,10 @@
+# Large data files (генерируются локально, не нужны в репо)
+public/sights_parsed.json
+public/stations_parsed.json
+data/sights_parsed.json
+data/stations_parsed.json
+data/geo_meta.json
+
 # Dependencies
 node_modules/
 .pnpm-store/
